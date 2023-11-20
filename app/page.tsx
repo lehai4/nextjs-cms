@@ -26,7 +26,7 @@ export default function Page() {
             className="self-start
              rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
           >
-            <span>
+            <span className=" items-center flex gap-2">
               Log in
               <ArrowRightOutlined />
             </span>

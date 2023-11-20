@@ -1,22 +1,57 @@
 "use client";
+import { FieldType } from "@/types";
 import { Button, Form, Input } from "antd";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-type FieldType = {
-  username?: string;
-  password?: string;
-  email?: string;
-};
-const SignIn = () => {
+import { usePathname, useRouter } from "next/navigation";
+import { useFormStatus } from "react-dom";
+import { toast } from "react-toastify";
+
+const AuthForm = () => {
+  const router = useRouter();
   const pathname = usePathname();
-  const handleFinished = (e: React.ChangeEvent<HTMLElement>) => {};
+  const { pending } = useFormStatus();
+
+  const handleLogin = async (values: any) => {
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        body: JSON.stringify(values),
+      });
+      const data = await res.json();
+      data.status === 404
+        ? toast.error("Login failed!")
+        : toast.success("Login successfully!");
+      router.push("/dashboard");
+    } catch (error: any) {
+      console.log(
+        "There was a problem with the fetch operation" + error.message
+      );
+    }
+  };
+
+  const handleRegister = async (values: FieldType) => {
+    try {
+      await fetch("/api/auth", {
+        method: "POST",
+        body: JSON.stringify(values),
+      });
+      toast.success("Register successfully!");
+    } catch (error: any) {
+      console.log(
+        "There was a problem with the fetch operation " + error.message
+      );
+    }
+  };
+  const handleFinished = (values: FieldType) => {
+    pathname === "/auth/login" ? handleLogin(values) : handleRegister(values);
+  };
   return (
     <Form
       name="login"
       layout="vertical"
       initialValues={{ remember: true }}
-      onFinish={handleFinished}
       className="mt-24"
+      onFinish={handleFinished}
     >
       {pathname === "/auth/login" ? (
         <>
@@ -50,7 +85,12 @@ const SignIn = () => {
             </Link>
           </Form.Item>
           <Form.Item className="flex justify-end">
-            <Button type="primary" htmlType="submit" className="bg-blue-500">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="bg-blue-500"
+              aria-disabled={pending}
+            >
               Login
             </Button>
           </Form.Item>
@@ -111,4 +151,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default AuthForm;
