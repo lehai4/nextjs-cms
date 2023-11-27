@@ -1,5 +1,5 @@
-import AuthForm from "@/ui/auth/AuthForm";
-import AndyLogo from "@/ui/logo";
+import AuthForm from "@/app/ui/auth/AuthForm";
+import AndyLogo from "@/app/ui/logo";
 
 export default function RegisterPage() {
   return (

@@ -1,11 +1,7 @@
-import AuthForm from "@/ui/auth/AuthForm";
-import AndyLogo from "@/ui/logo";
-import { Metadata } from "next";
+import AuthForm from "@/app/ui/auth/AuthForm";
+import AndyLogo from "@/app/ui/logo";
 
-export const metadata: Metadata = {
-  title: "Login",
-};
-export default function LoginPage() {
+const LoginPage = () => {
   return (
     <main className="flex items-center justify-center md:h-screen">
       <div className="relative mx-auto border border-slate-200 rounded-2xl flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
@@ -18,4 +14,5 @@ export default function LoginPage() {
       </div>
     </main>
   );
-}
+};
+export default LoginPage;

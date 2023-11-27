@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "models/User.js",
-    "context/provider.js"
+    "context/provider.tsx"
   ],
   "exclude": ["node_modules"]
 }
