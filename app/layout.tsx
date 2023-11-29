@@ -4,15 +4,16 @@ import { ToastContainer } from "react-toastify";
 import Provider from "@/context/provider";
 import "./globals.css";
 import "react-toastify/dist/ReactToastify.css";
+import { oswald } from "./ui/fonts";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | C-M-S",
-    default: "C-M-S",
+    template: "%s | Ecommerce",
+    default: "Ecommerce",
   },
-  description: "CMS of LeChiHai",
+  description: "Ecommerce of LeChiHai",
 };
 
 export default function RootLayout({
@@ -22,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={oswald.className}>
         <Provider>
           <main>{children}</main>
         </Provider>

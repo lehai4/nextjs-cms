@@ -1,17 +1,16 @@
 "use client";
 import { Input } from "antd";
-import { oswald } from "../fonts";
 
 const Subscribe = () => {
   return (
     <div className="container">
       <div className="subscribe text-center bg-white py-[45px] px-[10px] lg:py-[85px] lg:px-[10px] rounded-[5px] shadow-lg">
         <h3
-          className={`${oswald.className} text-[28px] lg:text-[36px] uppercase mb-[16px]`}
+          className={`text-[28px] lg:text-[36px] uppercase mb-[16px] font-[700] leading-[39px] tracking-tighter`}
         >
           get update from anywhere
         </h3>
-        <p className="opacity-80 mb-[1rem]">
+        <p className="opacity-80 mb-[1rem] text-[15px]">
           Bearing Void gathering light light his eavening unto dont afraid
         </p>
         <div className="form-subscribe">

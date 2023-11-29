@@ -1,6 +1,5 @@
 "use client";
 import { Typography } from "antd";
-import { oswald } from "../fonts";
 
 const Intro = ({
   intro,
@@ -15,11 +14,9 @@ const Intro = ({
     <div className="container">
       <div className="intro pb-[60px]">
         <p className="text-[16px] opacity-90 mb-[3px]">{des}</p>
-        <h2 className={`${oswald.className} text-[36px] font-[700]`}>
+        <h2 className={`text-[36px] font-[700] leading-[39px]`}>
           {intro}
-          <Typography.Text
-            className={`${oswald.className} text-[36px] font-[700] relative`}
-          >
+          <Typography.Text className={`text-[36px] font-[700] relative`}>
             &nbsp;
             {introItalic}
             <span className="absolute h-[2px] w-full bg-blue-500 -bottom-2 left-0" />

@@ -65,7 +65,7 @@ async function signInWithOAuth({
   profile: any;
 }) {
   await connect();
-  const user = await User.findOne({ email: profile.email });
+  const user = await User?.findOne({ email: profile.email });
   // login
   if (user) return true;
 
@@ -81,7 +81,7 @@ async function signInWithOAuth({
 }
 
 async function getUserByEmail({ email }: { email: any }) {
-  const user = await User.findOne({ email }).select("-password");
+  const user = await User?.findOne({ email }).select("-password");
 
   if (!user) throw new Error(`Email does not exist!`);
   return { ...user._doc, _id: user._id.toString() };
@@ -95,7 +95,7 @@ async function signInWithCredentials({
   password: string;
 }) {
   await connect();
-  const user = await User.findOne({ email });
+  const user = await User?.findOne({ email });
   if (!user) throw new Error(`Email does not exist!`);
 
   const compare = await bcrypt.compare(password, user.password);

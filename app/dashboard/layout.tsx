@@ -8,7 +8,7 @@ import Loading from "./(overview)/loading";
 
 const LayoutDashboard = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <>
       <Header>
         <MenuPage />
       </Header>
@@ -16,7 +16,7 @@ const LayoutDashboard = ({ children }: { children: React.ReactNode }) => {
         <Suspense fallback={<Loading />}>{children}</Suspense>
       </Content>
       <FooterPage />
-    </div>
+    </>
   );
 };
 
